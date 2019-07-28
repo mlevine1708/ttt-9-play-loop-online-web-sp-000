@@ -37,20 +37,10 @@ end
 
 # Define your play method below
 def play(board)
-   until over?(board)
-      turn(board)
+   turn_count = 0
+   while turn_count < 9
+     turn(board)
+     turn_count+=1
    end
-   if won?(board)
-      winner(board) == "X" || winner(board) == "O"
-      puts "Congratulations #{winner(board)}!"
-   elsif draw?(board)
-      puts "Cats Game!"
-   end
-end
-
-def over?(board)
-   if draw?(board) || won?(board) || full?(board)
-     return true
-   end
-end
-end
+ end
+ 
